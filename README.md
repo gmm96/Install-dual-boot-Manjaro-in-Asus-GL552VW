@@ -10,12 +10,12 @@ I'm making this as I had a lot of problems trying to boot in UEFI: usb getting g
 
 First of all, boot into the BIOS and disable **Secure Boot** option in the security options if you haven't done it before. Don't exit the BIOS yet.
 
-![Secure boot](https://preview.ibb.co/b2LC6z/Secure_boot.jpg "Secure boot")
+![Secure boot](SecureBoot.jpeg "Secure boot")
 
 
 If you cannot boot in UEFI, switch *Launch CSM* option in boot menu to enabled and be sure *Launch PXE OpROM policy* is disabled. BIOS settings is ok for now.
 
-![Boot menu](https://preview.ibb.co/i0YoeK/boot_menu.jpg "Boot menu")
+![Boot menu](BootConfig.jpeg "Boot menu")
 
 
 We start from an empty SSD disk. We would need to use **GPT** partition table for this disk, as we want to set it up with a UEFI boot system.

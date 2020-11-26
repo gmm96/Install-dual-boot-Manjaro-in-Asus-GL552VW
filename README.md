@@ -98,7 +98,13 @@ Take in care you maybe need to run these commands in *chroot* if some error is f
 After that, reboot the system and boot into the BIOS. Disable the option *Launch CSM* to avoid any BIOS boot system and select the new Linux bootloader option if exists. If not, go to *Boot menu* -> *Add new boot option* and select the file grubx64.efi in path */EFI/manjaro/*. Set a name to that bootloader, save and boot it up.
 
 So both systems are now installed, included grub to select the OS we want to boot up. 
-Maybe Windows 10 entry isn't shown in grub OS list. If it's your case, check there's a file called **bootmgfw.efi** in */EFI/Microsoft/Boot/* in ESP partition (*/dev/sdb2*). If exists and no entry appears in grub, your Windows bootloader is broken, you need to fix it.
+Maybe Windows 10 entry isn't shown in grub OS list. If it's your case, check there's a file called **bootmgfw.efi** in */EFI/Microsoft/Boot/* in ESP partition (*/dev/sdb2*). If exists and no entry appears in grub, your Windows bootloader may be broken, but you'll probably be able to save it. Create a new menu entry in your grub by creating file /etc/grub.d/40_custom and saving after pasting the following text. Of course, you need to update the grub afterwards.
+
+    menuentry "Windows 10" --class windows {
+	    search --set=root --file /EFI/Microsoft/Boot/bootmgfw.efi
+	    chainloader /EFI/Microsoft/Boot/bootmgfw.efi
+    }
+
 
 
 ## Manjaro optimizations
@@ -107,21 +113,41 @@ All installed, it's now time for optimizations. I chose KDE as environment due t
 
 So if everything is ok, open a terminal and run the next commands to optimize our OS:
 
-        $ sudo gpasswd -a <your-user> wheel       # Adding our user to sudo group
-        $ sudo pacman-mirrors --fasttrack 5       # Select up-to-date mirrorlist
-        $ sudo pacman -Syyu                       # Update system
-        $ sudo pacman -S yaourt                   # Install yaourt package manager
+        $ sudo gpasswd -a <your-user> wheel             # Adding our user to sudo group
+        $ sudo pacman-mirrors --fasttrack 5             # Select up-to-date mirrorlist
+        $ sudo pacman -Syyu                             # Update system
+        $ sudo pacman -S yay                            # Install yay AUR package manager
+        $ sudo pacman -S base-devel bash-completion     # Install some needed tools
+        $ sudo pacman -S packagekit-qt5                 # Install needed dependency for dolphin plugins/services
+        $ sudo pacman -S traceroute                     # There're always bugs to trace
+        $ yay -S ttf-ms-fonts                           # Install Microsoft fonts
         
 If your system also uses a SSD disk, **continuous TRIM** is enabled by default in Linux. It's known by the last years it's bad for our SSD performance in a long time, so we can disable it and enable **periodic TRIM**. Open */etc/fstab* and remove all **discard** parameters from the mount options in fstab file. After that, save the file, run next command and reboot:
 
         $ sudo systemctl enable fstrim.timer
         $ reboot
-        
-You can mount your Windows filesystem in Linux by using the file manager. Anyway, if you want to mount your Windows partition every time you boot up Manjaro, you can do it by editing the **/etc/fstab** file. Run:
 
-        $ wuuid=$(blkid -o value -s UUID /dev/sdb5)
-        $ sudo mkdir /run/media/<your_user>/Windows
-        $ sudo sh -c "echo -e \"UUID=${wuuid}  /run/media/<your_user>/Windows  ntfs-3g     rw,nosuid,nodev,allow_other,relatime 0 0\" >> /etc/fstab"
+Modern computers may have a large amount of RAM. If it's your case, you would maybe want to reduce the probabilty your system uses the swap memory instead of the RAM memory. **Swappiness** value goes from 0 to 100. Run the following command to modify it. I selected 10%, but you're free to choose the value you consider. Settings will be taken in count after rebooting.
+        
+        $ sudo sh -c "echo -e \"vm.swappiness=10\" >> /etc/sysctl.d/100-manjaro.conf"
+        
+You can mount your Windows filesystem or an additional hard drive in Linux by using the file manager. Anyway, if you want to mount them every time you boot up Manjaro, you can do it by editing the **/etc/fstab** file. Run:
+
+        $ wuuid=$(sudo blkid -o value -s UUID /dev/sdb4)
+        $ sudo mkdir /run/media/<your_linux_user>/Windows -p
+        $ sudo sh -c "echo -e \"UUID=${wuuid}  /run/media/<your_linux_user>/Windows  ntfs-3g     rw,nosuid,nodev,allow_other,relatime 0 0\" >> /etc/fstab"
+        $ hduuid=$(sudo blkid -o value -s UUID /dev/sda1)
+        $ sudo mkdir /run/media/<your_linux_user>/HD -p
+        $ sudo sh -c "echo -e \"UUID=${hduuid}  /run/media/<your_linux_user>/Windows  ntfs-3g     rw,nosuid,nodev,allow_other,relatime 0 0\" >> /etc/fstab"
+
+You can also add this stuff to the **.bashrc file**. Feel free to add your personalized *alias*.
+    
+    # Added by user
+    alias sudo='sudo '
+    alias ll='ls -lsa'
+    export VISUAL=vim
+    source /usr/share/bash-completion/completions/*
+
 
 
 

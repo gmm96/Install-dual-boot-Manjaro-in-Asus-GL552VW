@@ -168,8 +168,8 @@ In my opinion, KDE is the best Linux desktop environment by far for medium or hi
 - Fonts: All types +2 pts.
 - Icons: **Tela dark**
 - Cursors: **Arc-ICONS**
-- Workspace behaviour -> Screen Locking -> Appereance: img/Minimalism_wallpaper.jpeg
-- Startup and Shutdown -> Login Screen (SDDM): **Layan** with modified background (img/Minimalism_wallpaper.jpeg)
+- Workspace behaviour -> Screen Locking -> Appereance: [img/Minimalism_wallpaper.jpeg](img/Minimalism_wallpaper.jpeg)
+- Startup and Shutdown -> Login Screen (SDDM): **Layan** with modified background [img/Minimalism_wallpaper.jpeg](img/Minimalism_wallpaper.jpeg)
 - Startup and Shutdown -> Splash Screen: **Qogir-dark**
 - Desktop wallpaper: **EarthPlasma1080**
 

@@ -10,12 +10,12 @@ I'm making this as I had a lot of problems trying to boot in UEFI: usb getting g
 
 First of all, boot into the BIOS and disable **Secure Boot** option in the security options if you haven't done it before. Don't exit the BIOS yet.
 
-![Secure boot](SecureBoot.jpeg "Secure boot")
+![Secure boot](img/SecureBoot.jpeg "Secure boot")
 
 
 If you cannot boot in UEFI, switch *Launch CSM* option in boot menu to enabled and be sure *Launch PXE OpROM policy* is disabled. BIOS settings is ok for now.
 
-![Boot menu](BootConfig.jpeg "Boot menu")
+![Boot menu](img/BootConfig.jpeg "Boot menu")
 
 
 We start from an empty SSD disk. We would need to use **GPT** partition table for this disk, as we want to set it up with a UEFI boot system.
@@ -150,7 +150,39 @@ You can also add this stuff to the **.bashrc file**. Feel free to add your perso
 
 
 
+## Theming
+
+In my opinion, KDE is the best Linux desktop environment by far for medium or hight level computers. It offers a lot of tools and personalization. These are my theming choices and some screenshots. Selected option is marked in bold.
+
+- Global theme: Arc Dark, Aritim-Dark, ChromeOS-dark, **Layan**, McMojave, Numix, Qogir-dark.
+- Plasma style: **Layan**
+- Application style -> Windows decorations: **ChromeOS-dark**
+- Colors: **Layan**
+- Fonts: All types +2 pts.
+- Icons: **Tela dark**
+- Cursors: **Arc-ICONS**
+- Workspace behaviour -> Screen Locking -> Appereance: img/Minimalism_wallpaper.jpeg
+- Startup and Shutdown -> Login Screen (SDDM): **Layan** with modified background (img/Minimalism_wallpaper.jpeg)
+- Startup and Shutdown -> Splash Screen: **Qogir-dark**
+- Desktop wallpaper: **EarthPlasma1080**
+
+![KDE Plasma theming 1](img/Theming1.png "KDE Plasma theming 1")
+
+![KDE Plasma theming 2](img/Theming2.png "KDE Plasma theming 2")
+
+![KDE Plasma theming 3](img/Theming3.png "KDE Plasma theming 3")
+
+![KDE Plasma theming 4](img/Theming4.png "KDE Plasma theming 4")
+
+![KDE Plasma theming 5](img/Theming5.png "KDE Plasma theming 5")
+
+![KDE Plasma theming 6](img/Theming6.png "KDE Plasma theming 6")
+
+![KDE Plasma theming 7](img/Theming7.png "KDE Plasma theming 7")
 
 
+You can also install grub-customizer for installing different grub themes. For that matter, type the following command:
 
-
+    sudo pacman -S grub-customizer
+    
+There are a lot of themes, but I recommend **Tela1080p** personally.

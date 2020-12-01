@@ -147,6 +147,13 @@ You can also add this stuff to the **.bashrc file**. Feel free to add your perso
     alias ll='ls -lsa'
     export VISUAL=vim
     source /usr/share/bash-completion/completions/*
+    
+You may also want to use different keyboard layouts. I will add the proper configuration for Spanish and English US layout in this laptop. Go to *System Settings -> Input devices* and select:
+
+- Hardware -> Keyboard model: **Generic | Generic 104-key PC with L-shaped Enter key**
+- Layouts:
+    * English (US) - **English (US intl. with dead keys)** - us
+    * Spanish - **Spanish (Sun type 6/7)** - es
 
 
 
@@ -181,7 +188,7 @@ In my opinion, KDE is the best Linux desktop environment by far for medium or hi
 ![KDE Plasma theming 7](img/Theming7.png "KDE Plasma theming 7")
 
 
-You can also install grub-customizer for installing different grub themes. For that matter, type the following command:
+You can also install *grub-customizer* for installing different grub themes. For that matter, type the following command:
 
     sudo pacman -S grub-customizer
     

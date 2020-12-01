@@ -1,4 +1,4 @@
-# Install dual boot Manjaro 17 in Asus GL552VW using UEFI on SSD alongside Windows 10
+# Install dual boot Manjaro in Asus GL552VW using UEFI on SSD alongside Windows 10
 
 Most of the people who use Linux have their system installed in the same disk as a Windows installation. This dual boot configuration often goes wrong, as it was my case, so after some research in internet, here's how to do it properly.
 To clarify, this set up would be with an **Asus GL552VW** with two disk: Samsung EVO 860 SSD for the OS, previous HDD for the data.

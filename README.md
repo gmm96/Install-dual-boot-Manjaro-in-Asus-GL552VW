@@ -154,6 +154,14 @@ You may also want to use different keyboard layouts. I will add the proper confi
 - Layouts:
     * English (US) - **English (US intl. with dead keys)** - us
     * Spanish - **Spanish (Sun type 6/7)** - es
+    
+I also recommend you Dolphin plugins/services. It offers you additional functions that can help you.
+
+- Reverse Image Search
+- Root Actions Servicemenu
+- Jetbrains Dolphin Plugin
+- Customizable Multiaction Menu [ITA/ESP]
+- KDE 5 Service Menu ReImage (install by downloading it from [store.kde.org](store.kde.org), extract the package and follow the instructions)
 
 
 

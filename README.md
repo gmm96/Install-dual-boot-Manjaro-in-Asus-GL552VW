@@ -159,7 +159,11 @@ I also recommend you Dolphin plugins/services. It offers you additional function
 
 - Reverse Image Search
 - Root Actions Servicemenu
+- Show and hide multiple files
 - Jetbrains Dolphin Plugin
+- KDE 5 Template Maker
+- Quick backup and restore files
+- Export Markdown documents as PDFs
 - Customizable Multiaction Menu [ITA/ESP]
 - KDE 5 Service Menu ReImage (install by downloading it from [store.kde.org](store.kde.org), extract the package and follow the instructions)
 

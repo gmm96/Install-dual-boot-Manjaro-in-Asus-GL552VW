@@ -166,6 +166,7 @@ I also recommend you Dolphin plugins/services. It offers you additional function
 - Export Markdown documents as PDFs
 - Customizable Multiaction Menu [ITA/ESP]
 - KDE 5 Service Menu ReImage (install by downloading it from [store.kde.org](store.kde.org), extract the package and follow the instructions)
+- Mediainfo Service Menu (same as before)
 
 
 

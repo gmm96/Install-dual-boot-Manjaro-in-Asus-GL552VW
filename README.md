@@ -98,9 +98,10 @@ Take in care you maybe need to run these commands in *chroot* if some error is f
 After that, reboot the system and boot into the BIOS. Disable the option *Launch CSM* to avoid any BIOS boot system and select the new Linux bootloader option if exists. If not, go to *Boot menu* -> *Add new boot option* and select the file grubx64.efi in path */EFI/manjaro/*. Set a name to that bootloader, save and boot it up.
 
 So both systems are now installed, included grub to select the OS we want to boot up. 
-Maybe Windows 10 entry isn't shown in grub OS list. If it's your case, check there's a file called **bootmgfw.efi** in */EFI/Microsoft/Boot/* in ESP partition (*/dev/sdb2*). If exists and no entry appears in grub, your Windows bootloader may be broken, but you'll probably be able to save it. Create a new menu entry in your grub by creating file /etc/grub.d/40_custom and saving after pasting the following text. Of course, you need to update the grub afterwards.
+Maybe Windows 10 entry isn't shown in grub OS list. If it's your case, check there's a file called **bootmgfw.efi** in */EFI/Microsoft/Boot/* in ESP partition (*/dev/sdb2*). If exists and no entry appears in grub, your Windows bootloader may be broken, but you'll probably be able to save it. Create a new menu entry in your grub by creating file /etc/grub.d/05_custom and saving after pasting the following text. Of course, you need to update the grub afterwards.
 
     menuentry "Windows 10" --class windows {
+            savedefault
 	    search --set=root --file /EFI/Microsoft/Boot/bootmgfw.efi
 	    chainloader /EFI/Microsoft/Boot/bootmgfw.efi
     }

@@ -101,7 +101,7 @@ So both systems are now installed, included grub to select the OS we want to boo
 Maybe Windows 10 entry isn't shown in grub OS list. If it's your case, check there's a file called **bootmgfw.efi** in */EFI/Microsoft/Boot/* in ESP partition (*/dev/sdb2*). If exists and no entry appears in grub, your Windows bootloader may be broken, but you'll probably be able to save it. Create a new menu entry in your grub by creating file /etc/grub.d/05_custom and saving after pasting the following text. Of course, you need to update the grub afterwards.
 
     menuentry "Windows 10" --class windows {
-            savedefault
+	    savedefault
 	    search --set=root --file /EFI/Microsoft/Boot/bootmgfw.efi
 	    chainloader /EFI/Microsoft/Boot/bootmgfw.efi
     }
